@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, "Segoe UI", Tahoma, Verdana, sans-serif, sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.main-container {
+  margin: 50px auto;
+  width: 90%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+}
+.main-container .left {
+  flex: 1;
+}
+.main-container .left .container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.main-container .left .container .hint {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 22px;
+  background-color: #059b65;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 20px;
+}
+.main-container .left .container .result {
+  width: 100%;
+  padding: 20px 20px 5px;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+}
+.main-container .left .container .result span {
+  width: 40px;
+  min-height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 3px solid #000;
+  margin-inline: 5px;
+}
+.main-container .left .container .letters-cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.main-container .left .container .letters-cont.disable {
+  pointer-events: none;
+}
+.main-container .left .container .letters-cont .btn {
+  width: 50px;
+  text-align: center;
+  line-height: 60px;
+  background-color: #059b65;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #c7bbbb;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main-container .left .container .letters-cont .btn:hover {
+  background-color: #00cc88;
+}
+.main-container .left .container .letters-cont .btn.disable {
+  background-color: rgba(135, 135, 135, 0.4980392157);
+  pointer-events: none;
+}
+.main-container .right {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+.main-container .right .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-container .right .container.wrong-1 .gallow {
+  display: block;
+}
+.main-container .right .container.wrong-2 .gallow .rope {
+  display: block;
+}
+.main-container .right .container.wrong-3 .man .head {
+  display: block;
+}
+.main-container .right .container.wrong-4 .man .body {
+  display: block;
+}
+.main-container .right .container.wrong-5 .man .hand {
+  display: block;
+}
+.main-container .right .container.wrong-6 .man .leg {
+  display: block;
+}
+.main-container .right .container .gallow {
+  position: absolute;
+  background-color: #000;
+  width: 4px;
+  height: 300px;
+  left: 100px;
+  display: none;
+}
+.main-container .right .container .gallow::before {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  width: 200px;
+  height: 4px;
+  top: 20px;
+  left: 0;
+}
+.main-container .right .container .gallow::after {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  width: 100px;
+  height: 4px;
+  bottom: 0;
+  left: -50px;
+}
+.main-container .right .container .gallow .rope {
+  width: 4px;
+  height: 50px;
+  background-color: #000;
+  position: relative;
+  left: 200px;
+  top: 20px;
+  display: none;
+}
+.main-container .right .container .gallow .rope::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: -30px;
+  top: 50px;
+  border: 4px dashed #000;
+  border-radius: 50%;
+}
+.main-container .right .container .man {
+  position: absolute;
+  width: 100px;
+  left: 204px;
+  top: 174px;
+  transform: translateX(50%);
+}
+.main-container .right .container .man .head {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid #000;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.main-container .right .container .man .body {
+  position: absolute;
+  width: 5px;
+  height: 100px;
+  background-color: #000;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.main-container .right .container .man .hand {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  display: none;
+}
+.main-container .right .container .man .hand::before, .main-container .right .container .man .hand::after {
+  content: "";
+  width: 60px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  top: 70px;
+}
+.main-container .right .container .man .hand::before {
+  left: -60px;
+  transform: rotate(-60deg);
+  transform-origin: right;
+}
+.main-container .right .container .man .hand::after {
+  right: -60px;
+  transform: rotate(60deg);
+  transform-origin: left;
+}
+.main-container .right .container .man .leg {
+  position: relative;
+  top: 150px;
+  display: none;
+}
+.main-container .right .container .man .leg::before, .main-container .right .container .man .leg::after {
+  content: "";
+  width: 60px;
+  height: 5px;
+  background-color: #000;
+  position: absolute;
+  top: -2px;
+}
+.main-container .right .container .man .leg::before {
+  left: -10px;
+  transform: rotate(-60deg);
+  transform-origin: right;
+}
+.main-container .right .container .man .leg::after {
+  right: -10px;
+  transform: rotate(60deg);
+  transform-origin: left;
+}
+.main-container .pop-up {
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  background-color: #059b65;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  z-index: 10;
+}
+.main-container .pop-up div {
+  display: inline-block;
+  padding: 10px;
+  background-color: red;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main-container .pop-up div:hover {
+  background-color: rgba(255, 0, 0, 0.8117647059);
+}
+
+@media (max-width: 992px) {
+  .main-container .left .container .letters-cont .btn {
+    width: 11%;
+    line-height: 50px;
+  }
+}
+@media (max-width: 767px) {
+  .main-container {
+    height: 575px;
+    margin: 20px auto;
+    flex-direction: column-reverse;
+  }
+  .main-container .left {
+    flex: 1;
+  }
+  .main-container .left .container {
+    width: 450px;
+    margin-inline: auto;
+    gap: 15px;
+  }
+  .main-container .left .container .letters-cont .btn {
+    width: 43px;
+    line-height: 40px;
+  }
+  .main-container .right {
+    flex: 2;
+  }
+  .main-container .right .container {
+    width: 360px;
+    margin-inline: auto;
+  }
+  .main-container .right .container .gallow {
+    height: 95%;
+  }
+  .main-container .right .container .gallow::before {
+    width: 150px;
+  }
+  .main-container .right .container .gallow::after {
+    width: 80px;
+    left: -40px;
+  }
+  .main-container .right .container .gallow .rope {
+    height: 35px;
+    left: 150px;
+  }
+  .main-container .right .container .gallow .rope::before {
+    width: 50px;
+    height: 50px;
+    top: 35px;
+    left: -25px;
+  }
+  .main-container .right .container .man {
+    top: 62px;
+    left: 154px;
+  }
+  .main-container .right .container .man .head {
+    width: 45px;
+    height: 45px;
+  }
+  .main-container .right .container .man .body {
+    height: 60px;
+  }
+  .main-container .right .container .man .hand::before, .main-container .right .container .man .hand::after {
+    width: 40px;
+    top: 60px;
+  }
+  .main-container .right .container .man .hand::before {
+    left: -40px;
+  }
+  .main-container .right .container .man .hand::after {
+    right: -40px;
+  }
+  .main-container .right .container .man .leg::before, .main-container .right .container .man .leg::after {
+    width: 40px;
+    top: -45px;
+  }
+  .main-container .right .container .man .leg::before {
+    left: 10px;
+  }
+  .main-container .right .container .man .leg::after {
+    right: 10px;
+  }
+  .main-container .pop-up {
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .main-container .left .container {
+    width: 400px;
+  }
+  .main-container .left .container .letters-cont .btn {
+    width: 35px;
+    line-height: 40px;
+  }
+}
+@media (max-width: 400px) {
+  .main-container {
+    overflow: hidden;
+  }
+  .main-container .left .container {
+    gap: 10px;
+    width: 350px;
+  }
+  .main-container .left .container .letters-cont .btn {
+    width: 35px;
+    line-height: 40px;
+  }
+}/*# sourceMappingURL=style.css.map */
